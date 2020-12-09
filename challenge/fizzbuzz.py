@@ -4,8 +4,8 @@ bp = Blueprint('fizzbuzz', __name__, url_prefix='/fizzbuzz')
 
 @bp.route('', methods=['POST'])
 def fizzbuzz():
-    start = request.form['start']
-    end = request.form['end']
+    start = request.form.get('start')
+    end = request.form.get('end')
     if start is None or end is None:
         return 'Parameters start and end are required', 400
     if validate_args(start, end):
