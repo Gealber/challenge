@@ -2,10 +2,10 @@ from flask import Blueprint, request, jsonify, Response
 
 bp = Blueprint('fizzbuzz', __name__, url_prefix='/fizzbuzz')
 
-@bp.route('', methods=['POST'])
+@bp.route('', methods=['GET'])
 def fizzbuzz():
-    start = request.form.get('start')
-    end = request.form.get('end')
+    start = request.args.get('start')
+    end = request.args.get('end')
     if start is None or end is None:
         return 'Parameters start and end are required', 400
     if validate_args(start, end):
