@@ -71,15 +71,6 @@ pytest
 Just that, we are in Python. Of course to be able to do this we will need to install the module on your machine.
 So before running the tests make ssure you run previously, `pip install -e .`.
 
-# That's all?
-
-Nop I also take the job to deploy this app on Heroku given that is an easy way to deploy code, and don't need
-a credit card to do it. You can check it out running 
-
-```bash
-curl -X POST -d "start=1&end=100" https://
-```
-
 # What's is left that I could do?
 
 Well I would like to have more time to use:
