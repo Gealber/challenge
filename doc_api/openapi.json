@@ -1,0 +1,88 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "This is a simple API made with Flask, for the FizzBuzz challenge from Cuban Engineer.",
+    "version": "1.0.0",
+    "title": "FizzBuzz",
+    "contact": {
+      "email": "gealbermorales@gmail.com"
+    },
+    "license": {
+      "name": "GPL",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "fizzbuzz",
+      "description": "Fizzbuzz results given a range"
+    }
+  ],
+  "paths": {
+    "/fizzbuzz": {
+      "get": {
+        "tags": [
+          "fizzbuzz"
+        ],
+        "summary": "Request for the list of FizzBuzz result given a range.",
+        "description": "",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "start",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Start of the range",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "end",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "End of the range",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Result of fizzbuzz algorithm",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArrayOfFizzBuzz"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "405": {
+            "description": "Method not allowed"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArrayOfFizzBuzz": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "example": [
+          "1",
+          "2",
+          "Fizz",
+          "4",
+          "Buzz",
+          "Fizz"
+        ]
+      }
+    }
+  }
+}
